@@ -16,6 +16,8 @@ class ContainerApiMixin(object):
             'stdout': stdout and 1 or 0,
             'stderr': stderr and 1 or 0,
             'stream': stream and 1 or 0,
+            'Connection': 'Upgrade',
+            'Upgrade': 'tcp',
         }
         u = self._url("/containers/{0}/attach", container)
         response = self._post(u, params=params, stream=stream)
